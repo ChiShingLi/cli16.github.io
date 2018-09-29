@@ -1,0 +1,26 @@
+#about-me {
+     background-color: #F8F8F8
+}
+
+#hw-page {
+     background-color: #F8F8F8
+}
+
+.demo-quote {
+	text-align:center;
+	
+}
+
+.code_box {
+     background-color: #FFFFCC
+}
+
+.footer {
+   text-align: center;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+}
