@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- rendering -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- my CSS -->
+	<link rel="stylesheet" type="text/css" href="../../style/main.css">
+
+	<!-- Bootstrap4 stuff -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<title>Homework #1 | Git, HTML, CSS</title>
+</head>
+
+<body>
+	<!-- navigation -->
+	<nav class="navbar navbar-expand-sm bg-dark" >		
+		<!-- items -->
+		<a class ="nav-link" href ="../../index.html">Home</a>
+		<a class ="nav-link" href ="C#">CS407</a>
+		<a class ="active" href ="../../CS460">CS460</a>
+	</nav>
+	
+	<!-- content -->
+	<div class="container" id="hw-page">  
+		<div class="row">
+			<div class="col-md-12 text-center">
+		<h1>Homework #1: Git, HTML, CSS</h1>
+		For this assignment we were asked to learn the basic of Git, HTML, CSS, bootstrap4 and use those tools to create a collection of webpages. <br>
+		Prior to taking this class, I have no experiences working with Github and bootstrap4 and it takes me awhile for me to get the hang of it.
+			<p>Therefore, this page is mostly about me documenting my processes of how I acomplish this assignment.</p>
+		
+		<hr />
+		<h3>Files</h3>
+		<a href="./site/index.html">Demo webpage</a><br>
+		<a href="https://github.com/cli16/cli16.github.io/tree/master/CS460">CS460 repo</a> 
+		
+		<hr />
+		<h3>GitHub & Git</h3>
+		For this step, I first needed to create a <a href="https://github.com/">GitHub account</a> in order to be able create a repository to store my files.
+		
+		Since I have Linux installed on my Virtualbox, I use the terminal console on my Linux and enter the following codes to setup my GitHub repository:
+		<div class="code_box">
+		<code>git init <br>
+		git config --global user.name "Chi Li" <br>
+		git config --global user.email "cli16@mail.wou.edu" <br>
+		git remote add origin https://github.com/cli16/cli16.github.io.git<br>
+		</code>
+		</div>
+		<br>
+		Then, When I am ready to publish my files onto GitHub I would enter the following Git commands:
+				<div class="code_box">
+		<code>git add <filename><br>
+		git commit -m "message" <br>
+		git status <br>
+		git push origin master<br>
+		</code>
+			</div>	
+			
+		<hr />
+		<h3>Webpage</h3>
+		Now, the most funnest part of this assignment is building the webpages.
+		<br>
+		<p>As I've said before, I have no experiences with bootstrap4, so I did a bit of research on the internet and learn how to implement it into my webpages.
+		From the <a href ="https://www.w3schools.com/bootstrap/">W3Schools's Bootstrap Tutorial</a>, I learned that I can either have to download the bluestrap and host it myself or I can use the Bootstrap CDN (easiest way).</p>
+		As you might guessed it, I chose the easiest way and implemented bluestrap4 into my webpages usig Bootstrap CDN (Content Delivery Network).
+		
+		<div class="code_box">
+			<code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"&gt;<br>
+			&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">&lt;/script&gt;<br>
+			&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">&lt;/script&gt;
+			</code>
+		</div>	
+		<p>Note that those CDN links must be placed inside <mark>head</mark> tag.</p>
+		<h4>Bootstrap</h4>
+		In one of the requirement of this assignment, the instructor requires us to implement a navigation bar or menu to contains all of the links.
+		I found out how to code the navigation bar from reading the <a href ="https://www.w3schools.com/bootstrap/">W3Schools's Bootstrap Tutorial</a>. 	For the navigation bar, I chose the default color theme which is "dark". Below is my navigation bar code: <br>
+		<div class="code_box">
+		<code>
+		&lt;!-- navigation --&gt; <br>
+		&lt;nav class="navbar navbar-expand-sm bg-dark"&gt;		<br>
+		&lt;!-- items --&gt;<br>
+		&lt;a class ="nav-link" href ="../"&gt;Home&lt;/a&gt;<br>
+		&lt;a class ="nav-link" href ="CS407.com"&gt;CS407&lt;/a&gt;<br>
+		&lt;a class ="active" href ="../CS460&gt;CS460&lt;/a&gt;
+		</nav>
+		</code>	
+		</div>
+		<br>
+		<h4>Column</h4>
+		<p>For the column part, I again read up W3Schools's Bootstrap Tutorial, and I found out that Bootstrap can only have a maximum of 12 column grids in a single container</p>
+		<code>
+	
+
+		</code>	
+			
+			
+		</div>
+	</div>
+	
+
+
+	
+</body>
+
+<!-- <div class="footer">
+  <p>Homework #1: Git, HTML, CSS | Chi Li</p>
+</div> -->
+</html>
