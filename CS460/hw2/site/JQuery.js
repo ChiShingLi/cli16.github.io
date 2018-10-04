@@ -1,11 +1,12 @@
 var inputAmount = 0
 var totalAmount = 0
 var selectedOption = "error"
+var pickDate;
 
 	//$("#money_input").val(totalAmount + 200000);
 	//alert($(.radio-inline[0]).val)	
 	//alert(result.innerHTML = 'You selected: '+radVal);	
-	
+
 function addBudget(value)
 {
 	//check and see if money input is less than 0
@@ -50,17 +51,22 @@ function addTableRows(date, amount, type)
 	$("#details1").append("</tbody><tr><td>" + date + "</td><td>" + type + "</td><td>" + "$ "+ amount + "</td></tr></tbody>");
 }
 
+
+function getDate()
+{
+	pickDate = $("#date_picker").val();
+}
+
 	
-//add new rows to table with each submit
+
 
 
 //add button function
 $("#button_add").click(function() {
+	getDate()
 	getSelectedRadioValue();
 	addBudget($("#money_input").val());
 	//$("#details").hide();
-	addTableRows("10-3-2018", inputAmount, selectedOption);
-	
-
+	addTableRows(pickDate, inputAmount, selectedOption);
 	
 });
