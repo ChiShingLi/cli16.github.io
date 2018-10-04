@@ -1,4 +1,4 @@
-var inputAmount =0
+var inputAmount = 0
 var totalAmount = 0
 var selectedOption = "error"
 
@@ -19,8 +19,10 @@ function addBudget(value)
 		alert ("You must select the type.");
 	}
 	inputAmount = value;
-	totalAmount += inputAmount;
+	totalAmount = +totalAmount + +inputAmount; //add plus sign to indict integers
 	
+	//update the webpage total Amount
+	$("#totalAmount").text(totalAmount);
 
 }
 		
@@ -46,7 +48,6 @@ function getSelectedRadioValue()
 function addTableRows(date, amount, type)
 {
 	$("#details1").append("</tbody><tr><td>" + date + "</td><td>" + type + "</td><td>" + "$ "+ amount + "</td></tr></tbody>");
-	
 }
 
 	
