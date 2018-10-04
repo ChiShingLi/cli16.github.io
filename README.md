@@ -1,2 +1,2 @@
 # cli16.github.io
-A place for homework 1
+A place for CS460 homework
