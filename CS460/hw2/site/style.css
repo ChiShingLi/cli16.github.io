@@ -21,3 +21,16 @@
 	border-radius: 25px;
 	background: #EADEDB
 }
+
+input[type=number]  {
+    padding:5x 5px;
+    display:inline-block;
+    border-radius: 20px;
+}
+
+input[type=date] {
+    padding:5px 5px;
+    display:inline-block;
+    border-radius: 20px;
+}
+
