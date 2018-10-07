@@ -45,7 +45,7 @@ function getSelectedRadioValue()
 //add rows to the table. Pass in 3 parameters
 function addTableRows(date, amount, type)
 {
-	if (amount > 0){
+	if (amount != ""){
 	$("#details1").append("</tbody><tr><td>" + date + "</td><td>" + type + "</td><td>" + "$ "+ amount + "</td></tr></tbody>");
 	}
 }
