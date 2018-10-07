@@ -1,0 +1,36 @@
+#button_add{
+	font-size: 30px;
+}
+
+#type_title{
+	font-weight: bold;
+}
+
+#main_form{
+	background-color: #EAE6DA;
+	border-radius: 25px;
+}
+
+#title_form{
+	
+	border-radius: 25px;
+}
+
+#radioBoxGroup{
+	
+	border-radius: 25px;
+	background: #EADEDB
+}
+
+input[type=number]  {
+    padding:5x 5px;
+    display:inline-block;
+    border-radius: 20px;
+}
+
+input[type=date] {
+    padding:5px 5px;
+    display:inline-block;
+    border-radius: 20px;
+}
+
