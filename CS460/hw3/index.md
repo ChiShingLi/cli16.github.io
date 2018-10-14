@@ -1,4 +1,4 @@
-###Homework #3: Convert Java Program Into C# Program
+### Homework #3: Convert Java Program Into C# Program
 
 For this assignment we were asked to translate a java program into a C# program. Since I think that C# program is somewhat similar to C++ 
 
