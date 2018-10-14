@@ -261,5 +261,5 @@ namespace hw3
 ```
 
 ### Screenshots
-![screenshot1](./hw3/hw3/hw3/creenshots/proof.PNG)
+![screenshot1](./hw3/hw3/hw3/screenshots/proof.PNG)
 ![screenshot2](./hw3/hw3/hw3/screenshots/proof2.PNG)
