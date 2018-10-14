@@ -6,7 +6,7 @@ In doing this project, I found out that the java and C# language are very simila
 
 
 ## Files
-* [HW3 Code](https://github.com/cli16/cli16.github.io/tree/master/CS460/hw3/hw3)
+* [HW3 Code](https://github.com/cli16/cli16.github.io/tree/master/CS460/hw3/hw3/hw3/hw3)
 * [CS460 repo](https://github.com/cli16/cli16.github.io/tree/master/CS460)
 
 ### Getting Started
@@ -261,5 +261,5 @@ namespace hw3
 ```
 
 ### Screenshots
-![screenshot1](./screenshots/proof.PNG)
-![screenshot2](./screenshots/proof2.PNG)
+![screenshot1](./hw3/hw3/hw3/hw3/screenshots/proof.PNG)
+![screenshot2](./hw3/hw3/hw3/hw3/screenshots/proof2.PNG)
