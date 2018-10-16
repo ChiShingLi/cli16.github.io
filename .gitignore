@@ -1,0 +1,7 @@
+# --hw3 ignore---
+*/.vs/*
+*.sln
+*/bin/*
+*/obj/*
+*/Properties/*
+*.csproj
