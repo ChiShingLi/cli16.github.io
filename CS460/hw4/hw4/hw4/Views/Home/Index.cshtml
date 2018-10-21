@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Homework 4 | Home Page";
+}
+
+<div class="jumbotron">
+    <h1>CS460 Homework 4</h1>
+    <p class="lead">Homework 4 is all about learning the basics of GET, POST, Query Strings and MVC.</p>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Mile to Metric Converter</h2>
+        <p>
+            Want to know how many milemeters there are in 26 miles? This calculator
+            is for you. Using query strings to send form data to the server, which performs the calculation
+            and returns the answer in the requested page.
+        </p>
+        <p><a class="btn btn-default" @Html.ActionLink("Try it out >>", "converter", "Home") </a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Color Chooser</h2>
+        <p>Typical online color choosers are way too useful. We wanted something fun and completely useless. This form POST's the data to the server.</p>
+        <p><a class="btn btn-default" @Html.ActionLink("Try it out >>", "ColorChooser", "Color") </a></p>
+    </div>
+</div>
