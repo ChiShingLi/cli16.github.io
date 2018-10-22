@@ -19,7 +19,12 @@ namespace hw4.Controllers
         {
             string miles = "NULL";
             miles = Request.QueryString["miles"];
-            double milesValue = Convert.ToDouble(miles); //convert string into double
+            double milesValue;
+            if (double.TryParse(miles, out milesValue))
+            {
+                 milesValue = Convert.ToDouble(miles); //convert string into double
+            }
+
             double result = -1;
             string radioOption = "NULL";
             radioOption = Request.QueryString["units"];
