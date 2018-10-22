@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "ColorChooser";
+}
+
+<h2>Create a New Color</h2>
+<h4>Please enter colors in HTML hexadecimal format: #AABBCC</h4>
+
+
+@using (Html.BeginForm("ColorChooser", "Color", FormMethod.Post))
+{
+    @Html.Label("firstColorHex", "First Color")
+    @Html.TextBox("firstColorHex", null, htmlAttributes: new
+{
+    @class = "form-control",
+    type = "text"
+    })
+
+    @Html.Label("secondColorHex", "Second Color")
+    @Html.TextBox("secondColorHex", null, htmlAttributes: new
+{
+    @class = "form-control",
+    type = "text"
+    })
+    <br />
+    <button type="submit" class="btn btn-primary">Mix Colors</button>
+    <br />
+
+
+    //if post method
+    if (IsPost)
+    {
+
+        <br />
+        <div class="col-container" width: 100%>
+            <div style="display: inline-block; height:100px; width:100px; background-color:@ViewBag.firstColor"></div>
+            +
+            <div style="display: inline-block; height:100px; width:100px; background-color:@ViewBag.secondColor"></div>
+            =
+            <div style="display: inline-block; height:100px; width:100px; background-color:@ViewBag.resultColor"></div>
+        </div>
+    }
+
+
+    // @ViewBag.testing
+}
+
