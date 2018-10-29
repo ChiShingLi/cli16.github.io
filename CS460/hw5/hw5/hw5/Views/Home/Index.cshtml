@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Submit Requests</h2>
+            <p>
+                A page for tentant to submit requests.
+            </p>
+            <p><a class="btn btn-primary" @Html.ActionLink("Submit Requests >>", "Create", "Renters") </a></p>
+        </div>
+        <div class="col-md-6">
+            <h2>Request List</h2>
+            <p>A list for building manager to view all the current requests.</p>
+            <p><a class="btn btn-danger" @Html.ActionLink("Requests >>", "Index", "Renters") </a></p>
+        </div>
+    </div>
+
