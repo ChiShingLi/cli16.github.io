@@ -1,8 +1,33 @@
 # --hw3 ignore---
 /**/.vs/*
-*.sln
 */bin/*
 */obj/*
 */Properties/*
 *.csproj
-*.config
+
+# --hw5 ignore---
+/**/.vs/*
+#*.sln
+#*/bin/*
+#*/obj/*
+#*/Properties/*
+#*.csproj
+#*.config
+#*/packages/*
+#*/App_Data/*
+#*/App_Start/*
+#*/bin/*
+#*/content/*
+#*/fonts/*
+#*/Scripts/*
+#*.user
+#*.asax
+*.exe
+*.dll
+*.mdf
+*/Migrations/*
+*.ldf
+Migrations/
+packages/
+obj/
+bin/
