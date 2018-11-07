@@ -1,0 +1,51 @@
+﻿@model IEnumerable<hw6.Models.Person>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Client Search</h2>
+
+<body background="~/Content/Background/world-bg.jpg">
+</body>
+
+@*when user submited the query, use POST instead of GET to hide the query show from the user*@
+@*using razer code to create the form for inputs *@
+@using (Html.BeginForm("Search", "Home", FormMethod.Post))
+{
+    @*clientName obj to send to server*@
+    @Html.TextBox("clientName", null, htmlAttributes: new
+{
+   @class = "form-control",
+   type = "text",
+   placeholder = "Search by client name"
+   })
+
+    @* submit button to post the inputs to the server *@
+    <button type="submit" display="inline-block" class="btn btn-danger">Search</button>
+}
+
+
+@*if method is POSTed(user submitted), and result is empty display no results found ViewBag*@
+@if (IsPost && Model == null)
+{
+
+    @ViewBag.resultText
+}
+
+@*if method is POSTed(user submitted), and clientName is false (aka, is not empty)*@
+@if (IsPost && ViewBag.clientNameIsEmpty == false)
+{
+    @ViewBag.resultText
+
+    //using var for easier data handling & loop thru each object in the result model
+    foreach (var personObject in Model)
+    {
+        <br>
+        //@url.Action to return an url instead of HTML tags
+
+        //search buttom with client preferred name
+        <a class="btn btn-default" href="@Url.Action("Person", "Home", new { id=personObject.PersonID })">@personObject.FullName (@personObject.PreferredName) </a>
+    }
+
+}
