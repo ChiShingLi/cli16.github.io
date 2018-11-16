@@ -20,8 +20,8 @@ namespace hw7.Controllers
         //use "id" to get userinput
         public JsonResult Translate(string id)
         {
-            //setup the structure of the api url
-            string api_Key = "dBDE5ZszbbqJ5iqpZoFxUKruZpT4mn1w";
+            //setup the structure of the api url          
+            string api_Key = System.Web.Configuration.WebConfigurationManager.AppSettings["CS460-APIkey"];
             string api_Url = ("https://api.giphy.com/v1/stickers/translate?api_key=" + api_Key + "&s=" + id);
 
             //get the data from the url
@@ -39,10 +39,8 @@ namespace hw7.Controllers
             DatabaseObj.IpAddress = Request.UserHostAddress;
             DatabaseObj.BrowserAgent = Request.UserAgent;
             db.Infos.Add(DatabaseObj);
-
             db.SaveChanges();
             
-
             //return back the json data 
             return Json(testing, JsonRequestBehavior.AllowGet);
         }
