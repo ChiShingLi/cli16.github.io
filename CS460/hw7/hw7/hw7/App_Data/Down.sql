@@ -1,1 +1,1 @@
-﻿--DROP TABLE dbo.Infoes;
+﻿DROP TABLE dbo.Infoes;

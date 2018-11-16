@@ -1,2 +1,1 @@
-﻿--SELECT * FROM dbo.Infos
-----SELECT * FROM dbo.Infoes
+﻿SELECT * FROM dbo.Infoes
