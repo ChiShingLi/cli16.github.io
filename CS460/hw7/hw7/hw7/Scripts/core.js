@@ -1,4 +1,7 @@
-﻿function requestData(data) {
+﻿var dataArray = [];
+var indexCounter = 0; //counter for checking for words
+
+function requestData(data) {
     //extract the image url out of the json data
     console.log(data.data.images.original.url);
     var pictureUrl = data.data.images.original.url;
@@ -6,6 +9,15 @@
     //append the img to the output
     $("#output").append("<img src=\"" + pictureUrl + "\" height=\"100\" width=\"100\">");
 
+}
+
+function clears() {
+    //reset all
+    dataArray = [];
+    indexCounter = 0;
+    $("#UserInputBox").val("");
+    $("#output").empty();
+    console.log("cleared & reset all the variables");
 }
 
 function errorOnAjax() {
@@ -28,11 +40,11 @@ function apiCall(word) {
 
 //after page finished loading, run this function
 $(document).ready(function () {
-    var dataArray = [];
-    var indexCounter = 0; //counter for checking for words
+    //var dataArray = [];
+    //var indexCounter = 0; //counter for checking for words
     var isBoringWord = false;
     var boringWords = ["i", "me", "you", "the", "we", "them", "take", "say", "in", "on", "like", "their", "I'm", "so", "for", "are",
-        "then", "here", "out", "very", "not", "and", "am", "to", "going", "what", "your", "yours", "his", "her", "him", "she", "he", "got", "want"];
+        "then", "here", "out", "very", "not", "and", "am", "to", "going", "my", "what", "your", "yours", "his", "her", "him", "she", "he", "got", "want"];
 
     $(document).keyup(function (objEvent) {
         //if objEvent is true, := else
@@ -54,9 +66,8 @@ $(document).ready(function () {
 
             //print out debug info
             console.log(dataArray);
-
+            isBoringWord = false;
             //after finished check each letter
-            //add all the boring words into the array???
             //loop thru the boringWord array, if userInput is contained in the array and send the word to the API
             for (var counter = 0; counter < boringWords.length; counter++) {
                 if (userInputs.toLowerCase() == boringWords[counter].toLowerCase()) {
@@ -68,9 +79,8 @@ $(document).ready(function () {
                 }
                 console.log(isBoringWord)
             }
-            if (isBoringWord == true && counter >= boringWords.length) {
+            if (isBoringWord == false ) {
                 apiCall(userInputs);
-                isBoringWords = false;
             }
         }
     });
