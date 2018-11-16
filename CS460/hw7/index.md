@@ -1,6 +1,12 @@
 ### Homework 7: MVC & Ajax
 For this assignment, we were asked to write an MVC application that recieve data without refreshing the page by using Jquery, Ajax, and API.
 
+## Files
+* [HW7 Code](https://github.com/cli16/cli16.github.io/tree/master/CS460/hw7)
+* [CS460 repo](https://github.com/cli16/cli16.github.io/tree/master/CS460)
+* [Video Demo](https://youtu.be/YRCyrzuKFCg)
+
+
 ### Getting Started
 For this assignment, we were asked to use only Viusal Studio Community 2017 IDE. I downloaded the IDE by going to [Visual Studio IDE](https://visualstudio.microsoft.com/downloads/) . After I installed Visual Studio, I created my program by choosing the "Web -> ASP.NET Web Application(.NET FrameWork)" option and then I choose the MVC + Empty option.
 
