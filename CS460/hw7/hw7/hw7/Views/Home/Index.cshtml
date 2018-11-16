@@ -3,30 +3,29 @@
     ViewBag.Title = "Internet Language Translator";
 }
 
+<center><h2>Internet Language Translator</h2></center>
 <div class="row">
-    <div class="text-center">
-        <h2>Internet Language Translator</h2>
+    <div class="col-md-6">
         @Html.TextBox("UserInput", null, htmlAttributes: new
    {
        @class = "form-control",
        type = "text",
        placeholder = "Start typing your message here...",
-       id ="UserInputBox"
+       id ="UserInputBox",
    })
-    
 
+    </div>
 
+    <div class="col-md-6">
+        <div class="text-center">
+            <button class="btn btn-default" id="clearButton" onclick=clears() >Clear</button>
+        </div>
     </div>
 </div>
 
 <div id="output" class="row">
     @*output result goes here*@
 </div>
-
-
-
-
-
 
 @*render the section in _layout.cshtml*@
 @section PageScripts
