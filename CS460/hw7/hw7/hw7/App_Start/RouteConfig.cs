@@ -14,6 +14,12 @@ namespace hw7
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Translate",
+                url: "API/WordToPicture/{id}",
+                defaults: new { controller = "API", action = "Translate", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
