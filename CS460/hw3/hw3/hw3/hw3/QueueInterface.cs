@@ -1,15 +1,17 @@
 ﻿using System;
 
-
 namespace hw3
 {
+    /// <summary>
+    /// Queue core function calls.
+    /// </summary>
     class QueueInterface
     {
-        public interface queueInterface<T>
+        public interface IqueueInterface<T>
         {
-            T push(T element);
-            T pop();
-            bool isEmpty();
+            T Push(T element);
+            T Pop();
+            bool IsEmpty();
         }
     }
 }

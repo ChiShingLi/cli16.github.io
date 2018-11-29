@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace hw3
 {
+    ///<summary>
+    /// A Singly Linked FIFO Queue.  
+    /// From Dale, Joyce and Weems "Object-Oriented Data Structures Using Java"
+    /// Modified for CS 460 HW3
+    /// 
+    /// See QueueInterface.java for documentation
+    ///</summary>
+
     class LinkedQueue<T> : QueueInterface
     {
         private Node<T> front;
@@ -18,14 +26,14 @@ namespace hw3
             rear = null;
         }
 
-        public T push(T element)
+        public T Push(T element)
         {
             if (element == null)
             {
                 throw new System.ArgumentNullException();
             }
 
-            if (isEmpty())
+            if (IsEmpty())
             {
                 Node<T> tmp = new Node<T>(element, null);
                 rear = front = tmp;
@@ -34,37 +42,37 @@ namespace hw3
             {
                 ///general case
                 Node<T> tmp = new Node<T>(element, null);
-                rear.next = tmp;
+                rear.Next = tmp;
                 rear = tmp;
             }
             return element;
         }
 
-        public T pop()
+        public T Pop()
         {
             T tmp;
-            if (isEmpty())
+            if (IsEmpty())
             {
-                throw new QueueUnderflowException("The queue was empty when pop was invoked.");
+                throw new QueueUnderflowException("The queue was empty when Pop was invoked.");
             }
             else if (front == rear)
             {
                 ///if one item in queue
-                tmp = front.data;
+                tmp = front.Data;
                 front = null;
                 rear = null;
             }
             else
             {
                 ///general case
-                tmp = front.data;
-                front = front.next;
+                tmp = front.Data;
+                front = front.Next;
             }
             return tmp;
         }
-     
 
-        public bool isEmpty()
+
+        public bool IsEmpty()
         {
             if (front == null && rear == null)
             {

@@ -7,7 +7,21 @@ namespace hw3
 {
     class Program
     {
-        static LinkedList<string> generateBinaryRepresentationList(int n)
+     /// <summary>    
+     /// Print the binary representation of all numbers from 1 up to n.
+     /// This is accomplished by using a FIFO queue to perform a level
+     ///order(i.e.BFS) traversal of a virtual binary tree that
+     /// looks like this:
+     ///                 1
+     ///             /       \
+     ///            10       11
+     ///           /  \     /  \
+     ///*        100  101  110  111
+     ///          etc.
+     /// and then storing each "value" in a list as it is "visited".
+     /// </summary>
+
+    static LinkedList<string> generateBinaryRepresentationList(int n)
         {
 
             //create an empty queue of strings with which to perform the traversal
@@ -24,13 +38,13 @@ namespace hw3
             }
 
             //Enqueue the first binary number. Use a dynamic string to avoid string concat
-            q.push(new StringBuilder("1"));
+            q.Push(new StringBuilder("1"));
 
             //BFS
             while (n-- > 0)
             {
                 //print the front of the queue
-                StringBuilder sb = q.pop();
+                StringBuilder sb = q.Pop();
                 output.AddLast(sb.ToString());
 
                 //make a copy
@@ -38,11 +52,11 @@ namespace hw3
 
                 //left child
                 sb.Append('0');
-                q.push(sb);
+                q.Push(sb);
 
                 //right child
                 sbc.Append('1');
-                q.push(sbc);
+                q.Push(sbc);
             }
             return output;
         }
@@ -79,7 +93,7 @@ namespace hw3
             {
                 for (int i = 0; i < maxLength - s.Length; ++i)
                 {
-                    Console.Out.WriteLine(" ");
+                    Console.Out.Write(" ");
                 }
                 Console.Out.WriteLine(s);
             }
