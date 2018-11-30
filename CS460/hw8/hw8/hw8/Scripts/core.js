@@ -46,7 +46,7 @@ $(document).ready(function () {
         getBidPrices(itemID);
     };
 
-    var interval = 1000 * 1; // call this refresh function every 5 seconds.
+    var interval = 1000 * 5; // call this refresh function every 5 seconds.
     window.setInterval(ajax_call, interval);
 
 });
