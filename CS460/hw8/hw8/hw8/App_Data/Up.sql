@@ -36,7 +36,7 @@ CREATE TABLE [dbo].[Bids]
 	CONSTRAINT [PK_dbo.Bids] PRIMARY KEY CLUSTERED ([ID] ASC),
 
 	--setup a foreign key to get buyer name from other table, aka('Buyer' is an foreign key of 'Name' in 'Buyers' Table.)
-	CONSTRAINT [FK_dbo.Bids] FOREIGN KEY ([Item]) REFERENCES [dbo].[Items] ([ID]),
+	--CONSTRAINT [FK_dbo.Bids] FOREIGN KEY ([Item]) REFERENCES [dbo].[Items] ([ID]),
 	CONSTRAINT [FK2_dbo.Bids] FOREIGN KEY ([Buyer]) REFERENCES [dbo].[Buyers] ([BuyerName])
 	);
 
