@@ -4,7 +4,7 @@ For this assignment we were asked to deploy our homework 8 to the Cloud using Mi
 ## Files
 * [HW9 Code](https://github.com/cli16/cli16.github.io/tree/master/CS460/hw9)
 * [CS460 repo](https://github.com/cli16/cli16.github.io/tree/master/CS460)
-* [Website] (https://cs460.azurewebsites.net)
+* [Website](https://cs460.azurewebsites.net)
 
 ### Screenshots
 ![screenshot1](./screenshots/1.PNG)
