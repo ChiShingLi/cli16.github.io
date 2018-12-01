@@ -2,7 +2,7 @@
 For this assignment, we were asked to create a auction site using multiple table database.
 
 ## Files
-* [HW7 Code](https://github.com/cli16/cli16.github.io/tree/master/CS460/hw8)
+* [HW8 Code](https://github.com/cli16/cli16.github.io/tree/master/CS460/hw8)
 * [CS460 repo](https://github.com/cli16/cli16.github.io/tree/master/CS460)
 * [Video Demo](https://youtu.be/o-DYBcUE9Yw)
 
