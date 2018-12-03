@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using hw8.DAL;
-using hw8.Models.VM;
+using hw8.Models;
 
 namespace hw8.Controllers
 {
@@ -21,18 +20,15 @@ namespace hw8.Controllers
 
         public JsonResult AllBids(int? id)
         {
-            AuctionDashboard BidResult = new AuctionDashboard();
+            ////getting the item name from Items from the database by specific id
+            ////getting the Bids from the database by specific id
 
-            //getting the item name from Items from the database by specific id
-
-            //BidResult.Items.
-            //getting the Bids from the database by specific id
-            var result = BidResult.Bids = db.Bids            
-                .Where(x => x.Item == id)      //use Equals for other stuff, == for id
-                .OrderByDescending(y => y.Price) //order by price, highest bid first
+            db.Configuration.ProxyCreationEnabled = false; //turn it off, to avoid infinite loop error message
+            var result = db.Bids.Where(x => x.Item == id) //use Equals for other stuff, == for id
+                .OrderByDescending(y => y.Price)//order by price, highest bid first
                 .ToList(); //return as a list
+
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

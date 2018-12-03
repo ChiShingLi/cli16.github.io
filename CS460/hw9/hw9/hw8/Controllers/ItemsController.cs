@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using hw8.DAL;
 using hw8.Models;
 
 namespace hw8.Controllers
@@ -18,7 +17,8 @@ namespace hw8.Controllers
         // GET: Items
         public ActionResult Index()
         {
-            return View(db.Items.ToList());
+            var items = db.Items.Include(i => i.Seller1);
+            return View(items.ToList());
         }
 
         // GET: Items/Details/5
@@ -39,7 +39,6 @@ namespace hw8.Controllers
         // GET: Items/Create
         public ActionResult Create()
         {
-            //<database.table>,<value>,<text for display>
             ViewBag.Seller = new SelectList(db.Sellers, "SellerName", "SellerName");
             return View();
         }
@@ -58,13 +57,13 @@ namespace hw8.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Seller = new SelectList(db.Sellers, "SellerName", "SellerName", item.Seller);
             return View(item);
         }
 
         // GET: Items/Edit/5
         public ActionResult Edit(int? id)
         {
-            ViewBag.Seller = new SelectList(db.Sellers, "SellerName", "SellerName");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -74,6 +73,7 @@ namespace hw8.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Seller = new SelectList(db.Sellers, "SellerName", "SellerName", item.Seller);
             return View(item);
         }
 
@@ -90,6 +90,7 @@ namespace hw8.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Seller = new SelectList(db.Sellers, "SellerName", "SellerName", item.Seller);
             return View(item);
         }
 
@@ -113,7 +114,20 @@ namespace hw8.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            //since Bid have refernce to Items table, so delete the item from Bid table first
+            //when removing primary key linked with foreign key....
+            //need to remove the foreign key first
+
+            //get all the list with the id that contains an primary key
+            var bidList = db.Bids.Where(x => x.Item == id)
+                .Select(y => y.ID).ToList();
+
+            for (int counter = 0; counter < bidList.Count; counter++)
+            {
+                //loop thru and remove all FK records
+                Bid removeBid = db.Bids.Find(bidList[counter]);
+                db.Bids.Remove(removeBid);
+                db.SaveChanges();
+            }
 
             Item item = db.Items.Find(id);
             db.Items.Remove(item);

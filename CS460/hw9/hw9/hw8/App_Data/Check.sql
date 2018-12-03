@@ -1,5 +1,4 @@
-﻿--getting data from item database
-SELECT * FROM dbo.Items
-SELECT * FROM dbo.Bids
-SELECT * FROM dbo.Buyers
-SELECT * FROM dbo.Sellers 
+﻿SELECT * FROM Sellers;
+SELECT * FROM Buyers;
+SELECT * FROM Bids;
+SELECT * FROM Items;	
