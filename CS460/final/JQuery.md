@@ -1,11 +1,15 @@
 
 ## SELECTORS
 **Basics**
+```
 *
 .class
-element
+```
+
+## element
+```
 #id
-selector1, selectorN, ...
+selector1, selectorN
 ```
 
 ## Hierarchy
