@@ -91,7 +91,86 @@ if it'sa list object use this with **IEnumberable**:
 ```
 
 
+### SelectList ViewBag
+//ViewBag. Item is a SelectList 
+//viewBag for droplist
+//getting data from database
+//aka: ViewBag.Item = new SelectList(<database.table>, <"property value">, <"Property name that user sees">)
+ViewBag.Item = new SelectList(db.Items, "ID", "ID");
+```
 
+## binding
+those are the inputs that user input
+```
+public ActionResult Bid([Bind(Include = "ID,Item,Buyer,Price,Timestamp")] Bid BidObject)
+```
+
+```
+ [HttpPost]
+        public ActionResult Bid([Bind(Include = "ID,Item,Buyer,Price,Timestamp")] Bid BidObject)
+        {
+            EFdbContext db = new EFdbContext();
+            db.Bids.Add(BidObject);
+            db.SaveChanges();
+
+            //return a different page or error
+            return View("Index");
+        }
+```
+
+
+##delete table with foreign & primary key
+```
+        // POST: Items/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            //when removing primary key linked with foreign key....
+            //need to remove the foreign key first
+
+            //get all the list with the id that contains an primary key
+            var bidList = db.Bids.Where(x => x.Item == id)
+                .Select(y => y.ID).ToList();
+
+            for (int counter = 0; counter < bidList.Count; counter++)
+            {
+                //loop thru and remove all FK records
+                Bid removeBid = db.Bids.Find(bidList[counter]);
+                db.Bids.Remove(removeBid);
+                db.SaveChanges();
+            }
+
+            Item item = db.Items.Find(id);
+            db.Items.Remove(item);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+```
+
+## adding javascript
+```
+@section PageScripts
+{
+    <script type="text/javascript" src="~/Scripts/core.js"></script>
+}
+```
+then add render in _layout
+```
+    @RenderSection("scripts", required: false)
+    @*load the PageScripts, but is NOT required to exist.*@
+    @RenderSection("PageScripts", required: false)
+```
+
+### infinite loop message (API)
+```
+  db.Configuration.ProxyCreationEnabled = false; //turn it off, to avoid infinite loop error message
+            var result = db.Bids.Where(x => x.Item == id) //use Equals for other stuff, == for id
+                .OrderByDescending(y => y.Price)//order by price, highest bid first
+                .ToList(); //return as a list
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+```
 
 ## Debugging
 ```
