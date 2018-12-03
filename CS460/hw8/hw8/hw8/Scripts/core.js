@@ -10,7 +10,7 @@
 
     //loop thru each items and get each bidder and price.
     for (var counter = 0; counter < dataCount; counter++) {
-        $("#CurrentBids tbody").append("<tr>" + "<td>" + data[counter].Buyer + "</td>" 
+        $("#CurrentBids tbody").append("<tr>" + "<td>" + data[counter].Buyer + "</td>"
             + "<td>" + data[counter].Price + "</td>" + "</tr>");
     }
 }
@@ -22,7 +22,7 @@ function errorOnAjax() {
 function getBidPrices(itemID) {
 
     var source = "/API/AllBids/" + itemID;
- 
+
     $.ajax({
         type: "GET",
         dataType: "json",

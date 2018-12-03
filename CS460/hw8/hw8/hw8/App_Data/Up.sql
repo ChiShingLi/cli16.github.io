@@ -4,7 +4,7 @@ CREATE TABLE [dbo].[Sellers]
 	[ID] INT IDENTITY (1,1) NOT NULL,
 	[SellerName] NVARCHAR(300) NOT NULL,	
 	CONSTRAINT [PK_dbo.Sellers] PRIMARY KEY CLUSTERED ([SellerName] ASC)
-	);
+	);	
 
 
 CREATE TABLE [dbo].[Items]
@@ -14,8 +14,8 @@ CREATE TABLE [dbo].[Items]
 	[Name] NVARCHAR(30) NOT NULL,
 	[Description] NVARCHAR(200) NOT NULL,
     [Seller] NVARCHAR(300) NOT NULL,
-	CONSTRAINT [PK_dbo.Items] PRIMARY KEY CLUSTERED ([ID] ASC)
-	--CONSTRAINT [FK_dbo.Items] FOREIGN KEY ([Seller]) REFERENCES [dbo].[Sellers] ([SellerName])
+	CONSTRAINT [PK_dbo.Items] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.Items] FOREIGN KEY ([Seller]) REFERENCES [dbo].[Sellers] ([SellerName])
 	);
 
 CREATE TABLE [dbo].[Buyers]
@@ -36,12 +36,9 @@ CREATE TABLE [dbo].[Bids]
 	CONSTRAINT [PK_dbo.Bids] PRIMARY KEY CLUSTERED ([ID] ASC),
 
 	--setup a foreign key to get buyer name from other table, aka('Buyer' is an foreign key of 'Name' in 'Buyers' Table.)
-	--CONSTRAINT [FK_dbo.Bids] FOREIGN KEY ([Item]) REFERENCES [dbo].[Items] ([ID]),
+	CONSTRAINT [FK_dbo.Bids] FOREIGN KEY ([Item]) REFERENCES [dbo].[Items] ([ID]),
 	CONSTRAINT [FK2_dbo.Bids] FOREIGN KEY ([Buyer]) REFERENCES [dbo].[Buyers] ([BuyerName])
 	);
-
-
-
 
 
 	INSERT INTO [dbo].[Sellers] (SellerName) VALUES
@@ -67,7 +64,5 @@ CREATE TABLE [dbo].[Bids]
 	(1001,'Otto Vanderwall', 250000,'12/04/2017 09:04:22'),
 	(1003, 'Jane Stone', 95000,'12/04/2017 08:44:03');
 
-
-
-			
+	
 	GO

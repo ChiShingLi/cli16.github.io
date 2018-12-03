@@ -1,37 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
 namespace hw8.Models
 {
-    public class Bid
-    {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-        [Key]
-        public int ID { get; set; } 
+    public partial class Bid
+    {
+        
+        public int ID { get; set; }
 
         public int Item { get; set; }
 
+        [Required]
+        [StringLength(30)]
         public string Buyer { get; set; }
 
         //display money format
         [DisplayFormat(DataFormatString = "{0:C0}")]
         public int Price { get; set; }
 
-        public DateTime currentDate = DateTime.Now;
+        public DateTime currentTime = DateTime.Now;
 
-        public DateTime Timestamp
-        {
-            get { return currentDate; }
-            set { currentDate = value; }
+        public DateTime Timestamp {
+            get { return currentTime; }
+            set { currentTime = value; }
+           
         }
 
-        //allow access to item, to get the Item Name from item database to use in the index list.
-        //only need 'get' to read the data.
-            
+        public virtual Item Item1 { get; set; }
 
-        public virtual Item Items { get; }
+        public virtual Buyer Buyer1 { get; set; }
     }
-
 }

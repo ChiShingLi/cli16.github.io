@@ -1,20 +1,12 @@
-﻿@*get all the items in bids, import the Bid database as list*@
-@model IEnumerable<hw8.Models.Bid>
+﻿@model IEnumerable<hw8.Models.Bid>
 
 @{
     ViewBag.Title = "Home Page";
 }
 
-@*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>*@
-
-<h1>Reginald's Ancient Antiquities Auction House</h1>
-<h6>Welcome!</h6>
 <div class="row">
     <div class="col-md-6">
+        <h2>Start an Auction</h2>
         <p>
             Create an Auction!
         </p>
@@ -23,9 +15,10 @@
     <div class="col-md-6">
         <h2>Bid on an Item Now!</h2>
         <p>You can make a bid here!</p>
-        <p><a class="btn btn-default" @Html.ActionLink("Bid on an item!", "Bid", "Home")</a></p>
+        <p><a class="btn btn-default" @Html.ActionLink("Place an Bid!", "Bid", "Home")</a></p>
     </div>
 </div>
+
 <div class="row">
     <hr />
     <center>
@@ -44,37 +37,37 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.Item)
-                    </td>
-                    <td>
-                        @*link to item, use @Class to get rid of ?length=*@
-                        @*link to the item Name is declared inside the *@
-                        
-                        <a href="/Items/Details/@item.Item"> @item.Item </a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Buyer)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Price)
-                    </td>
-                    <td>
-                        @*if the bid is today then output the time, else show the date and time*@
-                        @*check for date*@
-                        @if (item.Timestamp.Date == DateTime.Today)
-                        {
-                            @*Format DateTime to show only the time*@
-                            DateTime time = item.Timestamp;
-                            @time.ToString("hh:mm tt"); @*use @ to return as HTML*@
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(m => item.Timestamp)
-                        }
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.Item)
+                        </td>
+                        <td>
+                            @*link to item, use @Class to get rid of ?length=*@
+                            @*link to the item Name is declared inside the *@
+
+                          <a href="/Items/Details/@item.Item"> @item.Item1.Name </a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Buyer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Price)
+                        </td>
+                        <td>
+                            @*if the bid is today then output the time, else show the date and time*@
+                            @*check for date*@
+                            @if (item.Timestamp.Date == DateTime.Today)
+                            {
+                                @*Format DateTime to show only the time*@
+                                DateTime time = item.Timestamp;
+                                @time.ToString("hh:mm tt"); @*use @ to return as HTML*@
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(m => item.Timestamp)
+                            }
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
