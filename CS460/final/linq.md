@@ -25,7 +25,7 @@ In database "People", where person. peron's fullName contains "clientName" strin
 ```
 public EFWideWorldImportersContext db = new EFWideWorldImportersContext();
 var clientResultCheck = db.People.Where(person => person.FullName.Contains(clientName));
-``
+```
 
 
 
