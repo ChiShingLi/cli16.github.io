@@ -92,6 +92,7 @@ if it'sa list object use this with **IEnumberable**:
 
 
 ### SelectList ViewBag
+```
 //ViewBag. Item is a SelectList 
 //viewBag for droplist
 //getting data from database
